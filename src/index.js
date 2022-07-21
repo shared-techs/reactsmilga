@@ -21,7 +21,7 @@ const Book = () => {
   );
 };
 
-const Image = () => <img src="https://images-na.ssl-images-amazon.com/images/I/8144Vic9C5L._AC_UL906_SR906,600_.jpg" alt="Book Image" />;
+const Image = () => <img src="https://images-na.ssl-images-amazon.com/images/I/8144Vic9C5L._AC_UL906_SR906,600_.jpg" alt="I Love youto the moon and back" />;
 
 
 const Title = () => <h1>I Love you to the Moon and Back</h1>;
