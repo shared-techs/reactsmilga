@@ -25,7 +25,9 @@ function BookList () {
       image={ firstBook.image }
       title={ firstBook.title }
       author={ firstBook.author }
-    />
+    >
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus aperiam laborum ipsam a consequatur repellendus dolor molestiae voluptatem eaque alias!</p>
+    </Book>
     <Book
       image={ secondBook.image }
       title={ secondBook.title }
@@ -34,12 +36,14 @@ function BookList () {
   </section>;
 };
 
-const Book = (props) => {
+const Book = ({ image, title, author, children }) => {
+  //const { image, title, author } = props;
   return (
     <article className='book'>
-      <img src={ props.image } alt='text' />
-      <h1>{ props.title }</h1>
-      <h4 >{ props.author }</h4>
+      <img src={ image } alt='text' />
+      <h1>{ title }</h1>
+      <h4 >{ author }</h4>
+      { children }
     </article>
   );
 };
