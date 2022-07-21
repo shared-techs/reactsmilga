@@ -5,29 +5,44 @@ import { createRoot } from 'react-dom/client';
 //   return <h4>TEST</h4>;
 // }
 
-function BookList() {
-  return <section>
-    <Book />
+// CSS
+import './index.css';
+// setup vars
+const firstBook = {
+  image: 'https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg',
+  title: 'I Love you to the Moon and Back',
+  author: 'Amelia Hepworth'
+};
+const secondBook = {
+  image: 'https://images-na.ssl-images-amazon.com/images/I/912F2fID5XL._AC_UL200_SR200,200_.jpg',
+  title: 'The 6:20 Man',
+  author: 'David Balducci'
+};
+
+function BookList () {
+  return <section className='booklist'>
+    <Book
+      image={ firstBook.image }
+      title={ firstBook.title }
+      author={ firstBook.author }
+    />
+    <Book
+      image={ secondBook.image }
+      title={ secondBook.title }
+      author={ secondBook.author }
+    />
   </section>;
 };
 
-const Book = () => {
+const Book = (props) => {
   return (
-    <article>
-      <Image />
-      <Title />
-      <Author />
+    <article className='book'>
+      <img src={ props.image } alt='text' />
+      <h1>{ props.title }</h1>
+      <h4 >{ props.author }</h4>
     </article>
   );
 };
-
-const Image = () => <img src="https://images-na.ssl-images-amazon.com/images/I/8144Vic9C5L._AC_UL906_SR906,600_.jpg" alt="I Love youto the moon and back" />;
-
-
-const Title = () => <h1>I Love you to the Moon and Back</h1>;
-
-const Author = () => <h4>Amelia Hepworth</h4>;
-
 
 const root = createRoot(document.getElementById('root'));
 root.render(
