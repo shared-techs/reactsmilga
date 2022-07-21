@@ -8,42 +8,39 @@ import { createRoot } from 'react-dom/client';
 // CSS
 import './index.css';
 // setup vars
-const firstBook = {
-  image: 'https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg',
-  title: 'I Love you to the Moon and Back',
-  author: 'Amelia Hepworth'
-};
-const secondBook = {
-  image: 'https://images-na.ssl-images-amazon.com/images/I/912F2fID5XL._AC_UL200_SR200,200_.jpg',
-  title: 'The 6:20 Man',
-  author: 'David Balducci'
-};
+const books = [
+  {
+    image: 'https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg',
+    title: 'I Love you to the Moon and Back',
+    author: 'Amelia Hepworth'
+  },
+  {
+    image: 'https://images-na.ssl-images-amazon.com/images/I/912F2fID5XL._AC_UL200_SR200,200_.jpg',
+    title: 'The 6:20 Man',
+    author: 'David Balducci'
+  },
+  {
+    image: 'https://images-na.ssl-images-amazon.com/images/I/61tqfa+xbWL._AC_UL200_SR200,200_.jpg',
+    title: 'Verity',
+    author: 'Colleen Hoover'
+  }
+];
 
 function BookList () {
-  return <section className='booklist'>
-    <Book
-      image={ firstBook.image }
-      title={ firstBook.title }
-      author={ firstBook.author }
-    >
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus aperiam laborum ipsam a consequatur repellendus dolor molestiae voluptatem eaque alias!</p>
-    </Book>
-    <Book
-      image={ secondBook.image }
-      title={ secondBook.title }
-      author={ secondBook.author }
-    />
-  </section>;
+  return (
+    <section className='booklist'>
+      { books.map(book => <Book key={ book.title } { ...book } />) }
+    </section>
+  );
 };
 
-const Book = ({ image, title, author, children }) => {
+const Book = ({ image, title, author }) => {
   //const { image, title, author } = props;
   return (
     <article className='book'>
       <img src={ image } alt='text' />
       <h1>{ title }</h1>
       <h4 >{ author }</h4>
-      { children }
     </article>
   );
 };
